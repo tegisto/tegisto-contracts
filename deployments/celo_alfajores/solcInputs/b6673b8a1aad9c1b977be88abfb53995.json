@@ -70,9 +70,6 @@
     "contracts/test-tokens/FakeFeedback.sol": {
       "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol\";\n\ncontract FakeFeedback is ERC20, ERC20Burnable {\n    constructor() ERC20(\"FakeFeedback\", \"FFB\") {\n        _mint(msg.sender, 1_000_000_000 * 10**decimals());\n    }\n}\n"
     },
-    "contracts/test-tokens/FakeApple.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol\";\n\ncontract FakeApple is ERC20, ERC20Burnable {\n    constructor() ERC20(\"FakeApple\", \"AAPL\") {\n        _mint(msg.sender, 1_000_000_000 * 10**decimals());\n    }\n}\n"
-    },
     "contracts/test-tokens/AcmeToken.sol": {
       "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol\";\n\ncontract AcmeToken is ERC20, ERC20Burnable {\n    constructor() ERC20(\"AcmeToken\", \"ACM\") {\n        _mint(msg.sender, 1_000_000_000 * 10**decimals());\n    }\n}\n"
     }

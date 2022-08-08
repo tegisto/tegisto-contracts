@@ -9,7 +9,21 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   console.log({deployer});
 
-  const deployResult1: DeployResult = await deploy('FakeFeedback', {
+  const deployResult1: DeployResult = await deploy('AcmeToken', {
+    from: deployer,
+    args: [],
+    log: true,
+    autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
+  });
+
+  const deployResult2: DeployResult = await deploy('SkynetToken', {
+    from: deployer,
+    args: [],
+    log: true,
+    autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
+  });
+
+  /*const deployResult1: DeployResult = await deploy('FakeFeedback', {
     from: deployer,
     args: [],
     log: true,
@@ -46,7 +60,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       999000000000, // deadline
       {gasLimit: 5000000}
     )
-  );
+  );*/
 };
 
 export default func;
