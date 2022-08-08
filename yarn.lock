@@ -1210,10 +1210,10 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers@0.3.0-beta.12":
-  version "0.3.0-beta.12"
-  resolved "https://registry.yarnpkg.com/hardhat-deploy-ethers/-/hardhat-deploy-ethers-0.3.0-beta.12.tgz#2b18d8c689413984262a12393cada3011c356b7a"
-  integrity sha512-sgx4cdhZwb8xDnuni6S0aturxgphMBGUaB1D3em73phhy8+RO9z7KiYeQvZhruXWydM6fdDX4NwGpaSy+MGcqA==
+"@nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers@0.3.0-beta.13":
+  version "0.3.0-beta.13"
+  resolved "https://registry.yarnpkg.com/hardhat-deploy-ethers/-/hardhat-deploy-ethers-0.3.0-beta.13.tgz#b96086ff768ddf69928984d5eb0a8d78cfca9366"
+  integrity sha512-PdWVcKB9coqWV1L7JTpfXRCI91Cgwsm7KLmBcwZ8f0COSm1xtABHZTyz3fvF6p42cTnz1VM0QnfDvMFlIRkSNw==
 
 "@openzeppelin/contracts@^4.5.0":
   version "4.5.0"
@@ -2699,6 +2699,11 @@ crypto-browserify@3.12.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+csv-reader@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/csv-reader/-/csv-reader-1.0.8.tgz#2d1ee452550016aa3b3defea0339a209161eff21"
+  integrity sha512-EK03OmXoet2dljwfJoY7/M6C+DmsthQgObpXfO6yCQ2HKNVSBd9uQ3TDzlfbfDhSn8mgmnPR2oEUftip3VihTw==
 
 d@1, d@^1.0.1:
   version "1.0.1"

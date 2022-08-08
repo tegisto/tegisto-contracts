@@ -54,8 +54,21 @@ const config: HardhatUserConfig = {
     ],
   },
   namedAccounts: {
-    deployer: 0,
-    secondary: 1,
+    deployer: {
+      default: 12,
+    },
+    secondary: {
+      default: 13,
+    },
+    tertiary: {
+      default: 14,
+    },
+    extra1: 15,
+    extra2: 16,
+    extra3: 17,
+    user1: 3,
+    user2: 4,
+    user3: 5,
   },
   networks: addForkConfiguration({
     hardhat: {
@@ -66,7 +79,7 @@ const config: HardhatUserConfig = {
       url: 'http://localhost:8545',
       accounts: accounts(),
     },
-    celo: {
+    celo_mainnet: {
       url: 'https://forno.celo.org',
       chainId: 42220,
       accounts: accounts('celo'),
@@ -81,7 +94,7 @@ const config: HardhatUserConfig = {
       chainId: 97,
       accounts: accounts('bsc_testnet'),
     },
-    bsc: {
+    bsc_mainnet: {
       url: 'https://bsc-dataseed.binance.org/',
       chainId: 56,
       accounts: accounts('bsc'),

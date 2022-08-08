@@ -18,7 +18,7 @@
     "solidity"
   ],
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@0.3.0-beta.12",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@0.3.0-beta.13",
     "@openzeppelin/contracts": "^4.5.0",
     "@typechain/ethers-v5": "^10.0.0",
     "@typechain/hardhat": "^6.0.0",
@@ -81,6 +81,7 @@
   "dependencies": {
     "@types/prompt-sync": "^4.1.1",
     "@uniswap/lib": "^1.1.1",
+    "csv-reader": "^1.0.8",
     "prompt-sync": "^4.2.0"
   }
 }

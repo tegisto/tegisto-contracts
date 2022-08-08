@@ -1,4 +1,4 @@
-import type { ContractTransaction } from 'ethers';
+import type {ContractTransaction} from 'ethers';
 
 export default async function exec(
   firstMessage: string,
@@ -7,7 +7,7 @@ export default async function exec(
 ) {
   tx = await Promise.resolve(tx);
   console.log(firstMessage, ' | hash =', tx.hash);
-  const result = await tx.wait(2);
+  const result = await tx.wait();
   if (secondMessage) {
     console.log(secondMessage);
   } else {
