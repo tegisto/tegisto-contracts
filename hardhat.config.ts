@@ -13,10 +13,14 @@ import {task} from 'hardhat/config';
 
 task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
-
   for (const account of accounts) {
     console.log(account.address);
   }
+});
+
+task('named-accounts', 'Prints the named accounts', async (taskArgs, hre) => {
+  const accounts = await hre.getNamedAccounts();
+  console.log(accounts);
 });
 
 const config: HardhatUserConfig = {
@@ -27,7 +31,7 @@ const config: HardhatUserConfig = {
         settings: {
           optimizer: {
             enabled: true,
-            runs: 999999,
+            runs: 200,
           },
         },
       },
@@ -54,15 +58,9 @@ const config: HardhatUserConfig = {
     ],
   },
   namedAccounts: {
-    deployer: {
-      default: 12,
-    },
-    secondary: {
-      default: 13,
-    },
-    tertiary: {
-      default: 14,
-    },
+    deployer: 12,
+    secondary: 13,
+    tertiary: 14,
     extra1: 15,
     extra2: 16,
     extra3: 17,
@@ -79,15 +77,30 @@ const config: HardhatUserConfig = {
       url: 'http://localhost:8545',
       accounts: accounts(),
     },
+    eth_mainnet: {
+      url: 'https://rpc.ankr.com/eth',
+      chainId: 1,
+      accounts: accounts('eth_mainnet'),
+    },
+    eth_rinkeby: {
+      url: 'https://rpc.ankr.com/eth_rinkeby',
+      chainId: 4,
+      accounts: accounts('eth_rinkeby'),
+    },
+    eth_goerli: {
+      url: 'https://rpc.ankr.com/eth_goerli',
+      chainId: 5,
+      accounts: accounts('eth_goerli'),
+    },
     celo_mainnet: {
       url: 'https://forno.celo.org',
       chainId: 42220,
-      accounts: accounts('celo'),
+      accounts: accounts('celo_mainnet'),
     },
     celo_alfajores: {
       url: 'https://alfajores-forno.celo-testnet.org',
       chainId: 44787,
-      accounts: accounts('alfajores'),
+      accounts: accounts('celo_alfajores'),
     },
     bsc_testnet: {
       url: 'https://data-seed-prebsc-1-s3.binance.org:8545',
@@ -97,7 +110,12 @@ const config: HardhatUserConfig = {
     bsc_mainnet: {
       url: 'https://bsc-dataseed.binance.org/',
       chainId: 56,
-      accounts: accounts('bsc'),
+      accounts: accounts('bsc_mainnet'),
+    },
+    kava_mainnet: {
+      url: 'https://evm.kava.io/',
+      chainId: 2222,
+      accounts: accounts('kava_mainnet'),
     },
   }),
   paths: {
