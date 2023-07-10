@@ -24,7 +24,7 @@ contract DexFactory is IDexFactory {
     }
 
     function createPair(address tokenA, address tokenB) external returns (address pair) {
-        require(msg.sender == feeToSetter, "Dex: FORBIDDEN");
+        // require(msg.sender == feeToSetter, "Dex: FORBIDDEN");
         require(tokenA != tokenB, "Dex: IDENTICAL_ADDRESSES");
         (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
         require(token0 != address(0), "Dex: ZERO_ADDRESS");
