@@ -17,6 +17,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     wethAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'; // BSC Mainnet
   } else if (chainId == 97) {
     wethAddress = '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd'; // BSC Testnet
+  } else if (chainId === 2222) {
+    wethAddress = '0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b'; // KAVA Mainnet
   }
   if (wethAddress === '') {
     throw new Error(`Unsupported chainId: ${chainId}`);

@@ -64,9 +64,9 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 };
 
 export default func;
-func.skip = async (hre: HardhatRuntimeEnvironment) => {
+/*func.skip = async (hre: HardhatRuntimeEnvironment) => {
   const chainId = parseInt(await hre.getChainId());
   return [31337, 97, 44787].includes(chainId) == false;
-};
+};*/
 func.id = 'deploy_test_tokens'; // id required to prevent reexecution
 func.tags = ['TestTokens'];
