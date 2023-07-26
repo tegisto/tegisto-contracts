@@ -29,7 +29,7 @@ library DexNoFeeLibrary {
                         hex"ff",
                         factory,
                         keccak256(abi.encodePacked(token0, token1)),
-                        hex"d2c9137129284c963c42a2ae445b8675402722ecf7da65fdce2d08aa68710484" // init code hash
+                        hex"3f97d817b3fbd96818f8e63fb85844283cf25632ebbc3f6a1630dc0a1d183d91" // init code hash
                     )
                 )
             )
