@@ -7,7 +7,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deploy, log} = hre.deployments;
   const {deployer} = await hre.getNamedAccounts();
 
-  let deployResult: DeployResult = null;
+  let deployResult: DeployResult | null = null;
   const chainId = parseInt(await hre.getChainId());
   if ([2222].includes(chainId)) {
     // On kava, there will be no fee
