@@ -1,12 +1,12 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
-import {TGSTokenBridged} from '../typechain';
+import {ERC20} from '../typechain';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployments, getNamedAccounts, ethers} = hre;
   const {deployer, tertiary} = await getNamedAccounts();
 
-  const tgsToken: TGSTokenBridged = await ethers.getContract('TGSToken', deployer);
+  const tgsToken: ERC20 = await ethers.getContract('TGSToken', deployer);
 
   console.log('tertiary', tertiary);
 
