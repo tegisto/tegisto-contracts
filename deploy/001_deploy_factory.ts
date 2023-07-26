@@ -7,12 +7,26 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deploy, log} = hre.deployments;
   const {deployer} = await hre.getNamedAccounts();
 
-  const deployResult: DeployResult = await deploy('DexFactory', {
-    from: deployer,
-    args: [deployer],
-    log: true,
-    autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
-  });
+  let deployResult: DeployResult = null;
+  const chainId = parseInt(await hre.getChainId());
+  if ([2222].includes(chainId)) {
+    // On kava, there will be no fee
+    deployResult = await deploy('DexFactory', {
+      contract: 'DexNoFeeFactory',
+      from: deployer,
+      args: [deployer],
+      log: true,
+      autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
+    });
+  } else {
+    deployResult = await deploy('DexFactory', {
+      contract: 'DexFactory',
+      from: deployer,
+      args: [deployer],
+      log: true,
+      autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
+    });
+  }
 
   const factory = (await hre.ethers.getContract('DexFactory')) as contracts.DexFactory;
   const init_code_hash = await factory.INIT_CODE_PAIR_HASH();

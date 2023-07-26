@@ -24,12 +24,25 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     throw new Error(`Unsupported chainId: ${chainId}`);
   }
 
-  const deployResult: DeployResult = await deploy('DexRouter', {
-    from: deployer,
-    args: [factoryAddress, wethAddress],
-    log: true,
-    autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
-  });
+  let deployResult: DeployResult | null = null;
+  if ([2222].includes(chainId)) {
+    // On kava, there will be no fee
+    deployResult = await deploy('DexRouter', {
+      contract: 'DexNoFeeRouter',
+      from: deployer,
+      args: [factoryAddress, wethAddress],
+      log: true,
+      autoMine: true,
+    });
+  } else {
+    deployResult = await deploy('DexRouter', {
+      contract: 'DexRouter',
+      from: deployer,
+      args: [factoryAddress, wethAddress],
+      log: true,
+      autoMine: true,
+    });
+  }
 };
 
 export default func;
