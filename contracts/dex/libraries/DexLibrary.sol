@@ -29,7 +29,7 @@ library DexLibrary {
                         hex"ff",
                         factory,
                         keccak256(abi.encodePacked(token0, token1)),
-                        hex"d2c9137129284c963c42a2ae445b8675402722ecf7da65fdce2d08aa68710484" // init code hash
+                        hex"9c2a77be9e632dee27b91accacb7a81776a2287ec41172f1a18f6fb190063ae4" // init code hash
                     )
                 )
             )
