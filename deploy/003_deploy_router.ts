@@ -8,8 +8,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const factoryAddress = (await hre.deployments.get('DexFactory')).address;
   let wethAddress = '';
-  if ([31337, 44787].includes(chainId)) {
-    // local network, Celo Alfajores
+  if ([31337, 42220, 44787].includes(chainId)) {
+    // local network, Celo Mainnet, Celo Alfajores
     wethAddress = (await hre.deployments.get('WETH9')).address;
   } else if (chainId === 1) {
     wethAddress = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'; // ethereum mainnet
